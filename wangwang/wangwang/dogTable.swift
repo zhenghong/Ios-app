@@ -12,6 +12,10 @@ var dogArry = NSMutableArray()
 
 class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
+    
+    var refreshControl = UIRefreshControl()
+    @IBOutlet weak var table: UITableView!
+    
     func initDogs(){
         var dog: dogData
         dog = dogData(img: "photo-1.jpg",name: "果果",age: 2,
@@ -32,12 +36,33 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
         super.viewDidLoad()
         
         initDogs()
+        
+        
+        //初始化UIRefreshControl
+        var rc = UIRefreshControl()
+        rc.attributedTitle = NSAttributedString(string: "下拉刷新")
+        rc.addTarget(self, action: "refreshDogs", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = rc
+        self.table.addSubview(refreshControl)
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func refreshDogs(){
+        
+        if (self.refreshControl.refreshing) {
+            self.refreshControl.attributedTitle = NSAttributedString(string: "加载中...")
+        }
+    }
+    
+    func callBackMethod(){
+        self.refreshControl.endRefreshing()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新")
     }
 
     override func didReceiveMemoryWarning() {
