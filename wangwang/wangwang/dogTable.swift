@@ -7,36 +7,82 @@
 //
 
 import UIKit
+import CoreData
 
-var dogArry = NSMutableArray()
-
-class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
     
-    
-    var refreshControl = UIRefreshControl()
+    @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var table: UITableView!
     
-    func initDogs(){
-        var dog: dogData
-        dog = dogData(img: "photo-1.jpg",name: "果果",age: 2,
-            mes: "白羊座，因为出差需要寄养几天，详细请联系郑宏 15801234157",
-            address: "北京，通州",time: "10:00",flag: 0,type: "泰迪")
-        dogArry.addObject(dog)
-        dog = dogData(img: "photo-2.jpg",name: "豆豆",age: 3,
-            mes: "白羊座，因为出差需要寄养几天，详细请联系郑宏 15801234157",
-            address: "北京，酒仙桥",time: "2:00",flag: 1,type: "哈士奇")
-        dogArry.addObject(dog)
-        dog = dogData(img: "photo-3.jpg",name: "闹闹",age: 5,
-            mes: "白羊座，因为出差需要寄养几天，详细请联系郑宏 15801234157",
-            address: "上海，浦东",time: "昨天",flag: 0,type: "松狮")
-        dogArry.addObject(dog)
+    var dogArry = NSMutableArray()
+    var refreshControl = UIRefreshControl()
+    
+    lazy var managedObjectContext : NSManagedObjectContext? = {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if let managedObjectContext = appDelegate.managedObjectContext {	return managedObjectContext
+        }
+        else {
+            return nil
+        }
+    }()
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        //print("searchText="+searchText)
+        queryCon(searchText)
+        table.reloadData()
     }
-
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func queryDogs(){
+        queryCon("")
+    }
+    
+    func queryCon(name: NSString){
+        
+        var error: NSError? = nil
+        //SQL :from
+        var select: NSFetchRequest = NSFetchRequest(entityName: "Dog")
+        //SQL:where条件查询
+        if(name != ""){
+            select.predicate = NSPredicate(format: "dog_name='\(name)'")
+        }
+        //SQL:orderby排序  倒序
+        let sortDescriptor = NSSortDescriptor(key: "dog_name", ascending: true)
+        select.sortDescriptors = [sortDescriptor]
+        var result = self.managedObjectContext!.executeFetchRequest(select,error:&error) as [Dog]
+        
+        dogArry.removeAllObjects()
+        for dog: Dog in result{
+            //println("dogName:\(dog.dog_name) ,dogAge:\(dog.dog_age)")
+            self.dogArry.addObject(dog)
+        }
+    }
+    
+    func del(name: NSString){
+        
+        var error: NSError? = nil
+        var select: NSFetchRequest=NSFetchRequest(entityName: "Dog")
+        select.predicate = NSPredicate(format: "dog_name='\(name)'")
+        var result = self.managedObjectContext!.executeFetchRequest(select,error:&error) as [Dog]
+        
+        for dog: Dog in result{
+            self.managedObjectContext!.deleteObject(dog)
+        }
+        
+        self.managedObjectContext?.save(nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initDogs()
-        
+        queryDogs()
         
         //初始化UIRefreshControl
         var rc = UIRefreshControl()
@@ -45,14 +91,12 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
         self.refreshControl = rc
         self.table.addSubview(refreshControl)
 
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //初始化编辑按钮
+        self.editButtonItem().title = "编辑"
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
+    // MARK: - RefreshControl
     func refreshDogs(){
         
         if (self.refreshControl.refreshing) {
@@ -60,6 +104,7 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
         }
     }
     
+    //下拉回调
     func callBackMethod(){
         self.refreshControl.endRefreshing()
         self.refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新")
@@ -84,11 +129,38 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
         return dogArry.count
     }
 
+    override func setEditing(editing: Bool, animated: Bool) {
+        
+        super.setEditing(editing, animated: true)
+        self.table.setEditing(editing, animated: true)
+        if(self.editing){
+            self.editButtonItem().title = "完成"
+        } else {
+            self.editButtonItem().title = "编辑"
+        }
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.Delete){
+            
+            //删除数据
+            let dog = dogArry[indexPath.row] as Dog
+            dogArry.removeObjectAtIndex(indexPath.row)
+            del(dog.dog_name)
+            
+            //删除表格
+            table.deleteRowsAtIndexPaths(NSArray(object: indexPath), withRowAnimation: UITableViewRowAnimation.Bottom)
+        }
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dogTableCell", forIndexPath: indexPath) as dogTableCell
         
-        let dog =  dogArry[indexPath.row] as dogData
+        let dog =  dogArry[indexPath.row] as Dog
         
         cell.img.image = UIImage(named: dog.dog_img)
         cell.name.text = dog.dog_name
@@ -110,7 +182,7 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        self.performSegueWithIdentifier("gotoDogImg", sender: nil)
+    self.performSegueWithIdentifier("gotoDogImg", sender: nil)
        
     }
 
@@ -163,7 +235,11 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     
     @IBAction func cancel(segue: UIStoryboardSegue, sender: AnyObject?){
-    
+        
+        let dogVoew = segue.sourceViewController as addDog
+        
+        queryDogs()
+        self.table.reloadData()
     }
 
 }

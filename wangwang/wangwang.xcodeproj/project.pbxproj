@@ -35,7 +35,8 @@
 		5AD016A41A99DFAA00F63C3D /* collect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD016A31A99DFAA00F63C3D /* collect.swift */; };
 		5AD016A61A99E1AE00F63C3D /* cellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD016A51A99E1AE00F63C3D /* cellView.swift */; };
 		5AD016A81A9A050400F63C3D /* dogTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD016A71A9A050400F63C3D /* dogTable.swift */; };
-		5ADF84781A9A0E08006E6F91 /* dogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF84771A9A0E08006E6F91 /* dogData.swift */; };
+		5AD771031A9EC0EF00F4D10A /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD771021A9EC0EF00F4D10A /* Dog.swift */; };
+		5AD771051A9EF84500F4D10A /* addDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD771041A9EF84500F4D10A /* addDog.swift */; };
 		5ADF847A1A9A1369006E6F91 /* dogTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF84791A9A1369006E6F91 /* dogTableCell.swift */; };
 		5AE5A3E51A98550100289526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE5A3E41A98550100289526 /* AppDelegate.swift */; };
 		5AE5A3E81A98550100289526 /* wangwang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AE5A3E61A98550100289526 /* wangwang.xcdatamodeld */; };
@@ -85,7 +86,8 @@
 		5AD016A31A99DFAA00F63C3D /* collect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collect.swift; sourceTree = "<group>"; };
 		5AD016A51A99E1AE00F63C3D /* cellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellView.swift; sourceTree = "<group>"; };
 		5AD016A71A9A050400F63C3D /* dogTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dogTable.swift; sourceTree = "<group>"; };
-		5ADF84771A9A0E08006E6F91 /* dogData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dogData.swift; sourceTree = "<group>"; };
+		5AD771021A9EC0EF00F4D10A /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dog.swift; path = ../Dog.swift; sourceTree = "<group>"; };
+		5AD771041A9EF84500F4D10A /* addDog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addDog.swift; sourceTree = "<group>"; };
 		5ADF84791A9A1369006E6F91 /* dogTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dogTableCell.swift; sourceTree = "<group>"; };
 		5AE5A3DF1A98550100289526 /* wangwang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wangwang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE5A3E31A98550100289526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		5AE5A3E11A98550100289526 /* wangwang */ = {
 			isa = PBXGroup;
 			children = (
+				5AD771021A9EC0EF00F4D10A /* Dog.swift */,
 				5A64E0471A99A92400510F9A /* imges */,
 				5AE5A3E41A98550100289526 /* AppDelegate.swift */,
 				5AE5A3E91A98550100289526 /* ViewController.swift */,
@@ -182,8 +185,8 @@
 				5AD016A31A99DFAA00F63C3D /* collect.swift */,
 				5AD016A51A99E1AE00F63C3D /* cellView.swift */,
 				5AD016A71A9A050400F63C3D /* dogTable.swift */,
-				5ADF84771A9A0E08006E6F91 /* dogData.swift */,
 				5ADF84791A9A1369006E6F91 /* dogTableCell.swift */,
+				5AD771041A9EF84500F4D10A /* addDog.swift */,
 			);
 			path = wangwang;
 			sourceTree = "<group>";
@@ -340,10 +343,11 @@
 			files = (
 				5AE5A3EA1A98550100289526 /* ViewController.swift in Sources */,
 				5AD016A81A9A050400F63C3D /* dogTable.swift in Sources */,
-				5ADF84781A9A0E08006E6F91 /* dogData.swift in Sources */,
 				5AE5A3E51A98550100289526 /* AppDelegate.swift in Sources */,
 				5AD016A41A99DFAA00F63C3D /* collect.swift in Sources */,
+				5AD771031A9EC0EF00F4D10A /* Dog.swift in Sources */,
 				5AD016A61A99E1AE00F63C3D /* cellView.swift in Sources */,
+				5AD771051A9EF84500F4D10A /* addDog.swift in Sources */,
 				5AE5A3E81A98550100289526 /* wangwang.xcdatamodeld in Sources */,
 				5ADF847A1A9A1369006E6F91 /* dogTableCell.swift in Sources */,
 			);
