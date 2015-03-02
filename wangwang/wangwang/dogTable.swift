@@ -81,7 +81,7 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         queryDogs()
         
         //初始化UIRefreshControl

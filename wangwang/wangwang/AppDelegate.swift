@@ -10,10 +10,9 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarDelegate {
 
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,10 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabItem = tab.tabBar.items as [UITabBarItem]
         var item0 = tabItem[0]
         var item1 = tabItem[1]
+    
+        item0.selectedImage = UIImage(named: "bar1on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        item0.image = UIImage(named: "bar1off.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        item0.badgeValue = "2"
+        item0.title = "狗狗"
         
-        item0.selectedImage = UIImage(named: "bar1on.png")
-        item0.image = UIImage(named: "bar1on.png")
-        
+        item1.selectedImage = UIImage(named: "bar2on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        item1.image = UIImage(named: "bar2off.png")?.imageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal)
+        item1.title = "我"
+    
         return true
     }
 
