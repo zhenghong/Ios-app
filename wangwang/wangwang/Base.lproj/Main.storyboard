@@ -572,11 +572,11 @@
                             <outlet property="delegate" destination="NrV-qc-Nxb" id="3TD-Fj-j8z"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="宠物店" id="oK5-Tn-L1B"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="宠物店" image="bar2on.png" id="oK5-Tn-L1B"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GI-Z4-FiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-129" y="888"/>
+            <point key="canvasLocation" x="-39" y="1005"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w6E-5w-aht">
@@ -1224,8 +1224,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Ecj-I2-AI1" kind="relationship" relationship="viewControllers" id="IhD-Tg-aqI"/>
-                        <segue destination="pK5-nE-mrr" kind="relationship" relationship="viewControllers" id="NMB-Au-lYI"/>
-                        <segue destination="y2k-sv-N1g" kind="relationship" relationship="viewControllers" id="0cZ-mg-fHf"/>
+                        <segue destination="NrV-qc-Nxb" kind="relationship" relationship="viewControllers" id="ZTb-RC-moN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpG-IL-wUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1236,7 +1235,7 @@
         <scene sceneID="J9f-Pz-ylD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ecj-I2-AI1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="狗狗" id="B8W-IZ-NcT"/>
+                    <tabBarItem key="tabBarItem" title="狗狗" image="bar1on.png" badgeValue="5" id="B8W-IZ-NcT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LOP-5E-Tj5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1271,9 +1270,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bar1on.png" width="30" height="29"/>
+        <image name="bar2on.png" width="31" height="31"/>
         <image name="photo-12.jpg" width="1024" height="818"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="NMB-Au-lYI"/>
-    </inferredMetricsTieBreakers>
 </document>

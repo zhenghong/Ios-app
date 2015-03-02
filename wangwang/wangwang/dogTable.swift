@@ -94,6 +94,7 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         //初始化编辑按钮
         self.editButtonItem().title = "编辑"
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
     }
     
     // MARK: - RefreshControl
