@@ -49,6 +49,7 @@
 		5AE404EC1AA553620041B7D7 /* bar4off.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE404E81AA553620041B7D7 /* bar4off.png */; };
 		5AE404ED1AA553620041B7D7 /* bar4on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE404E91AA553620041B7D7 /* bar4on.png */; };
 		5AE404F11AA57C1F0041B7D7 /* me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE404F01AA57C1F0041B7D7 /* me.swift */; };
+		5AE4A2AB1AA944E2005C3759 /* left.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4A2AA1AA944E2005C3759 /* left.swift */; };
 		5AE5A3E51A98550100289526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE5A3E41A98550100289526 /* AppDelegate.swift */; };
 		5AE5A3E81A98550100289526 /* wangwang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AE5A3E61A98550100289526 /* wangwang.xcdatamodeld */; };
 		5AE5A3EA1A98550100289526 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE5A3E91A98550100289526 /* ViewController.swift */; };
@@ -113,6 +114,7 @@
 		5AE404E81AA553620041B7D7 /* bar4off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar4off.png; sourceTree = "<group>"; };
 		5AE404E91AA553620041B7D7 /* bar4on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar4on.png; sourceTree = "<group>"; };
 		5AE404F01AA57C1F0041B7D7 /* me.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = me.swift; sourceTree = "<group>"; };
+		5AE4A2AA1AA944E2005C3759 /* left.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = left.swift; sourceTree = "<group>"; };
 		5AE5A3DF1A98550100289526 /* wangwang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wangwang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE5A3E31A98550100289526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE5A3E41A98550100289526 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				5AD771041A9EF84500F4D10A /* addDog.swift */,
 				5AE404F01AA57C1F0041B7D7 /* me.swift */,
 				5AE222E11AA7F33200C1A27E /* mainContainer.swift */,
+				5AE4A2AA1AA944E2005C3759 /* left.swift */,
 			);
 			path = wangwang;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				5AD016A41A99DFAA00F63C3D /* collect.swift in Sources */,
 				5AD771031A9EC0EF00F4D10A /* Dog.swift in Sources */,
 				5AD016A61A99E1AE00F63C3D /* cellView.swift in Sources */,
+				5AE4A2AB1AA944E2005C3759 /* left.swift in Sources */,
 				5AD771051A9EF84500F4D10A /* addDog.swift in Sources */,
 				5AE404F11AA57C1F0041B7D7 /* me.swift in Sources */,
 				5AE222E71AA8AC0300C1A27E /* UIImage+ImageEffects.m in Sources */,
