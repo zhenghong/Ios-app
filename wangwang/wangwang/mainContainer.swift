@@ -14,6 +14,7 @@ class mainContainer: UIViewController {
     var app = UIApplication.sharedApplication().delegate as AppDelegate
     
     var left = UIView()
+    let ges = UIPanGestureRecognizer()
     
     @IBAction func show(sender: AnyObject) {
         
@@ -21,30 +22,18 @@ class mainContainer: UIViewController {
         img.frame = CGRectMake(0, 0, 400, 600)
         self.view.addSubview(img)
         self.view.addSubview(left)
-        aniShow()
+        aniShow(0)
     }
     
-    func aniShow(){
+    func aniShow(tx: CGFloat){
         
         UIView.beginAnimations("left view show", context: nil)
         UIView.setAnimationDuration(0.2)
         UIView.setAnimationDelegate(self)
         
-        left.frame = CGRectMake(0, 0, 280, self.view.bounds.height - 40)
+        left.frame = CGRectMake(tx, 0, 280, self.view.bounds.height - 40)
         
         UIView.commitAnimations()
-    }
-    
-    func aniDisappear(){
-        
-        UIView.beginAnimations("left view disappear", context: nil)
-        UIView.setAnimationDuration(0.2)
-        UIView.setAnimationDelegate(self)
-        
-        left.frame = CGRectMake(-280, 0, 280, self.view.bounds.height - 40)
-        
-        UIView.commitAnimations()
-
     }
     
     func updateBlur(blurImg: UIImageView) {
@@ -71,8 +60,25 @@ class mainContainer: UIViewController {
         left.frame = CGRectMake(-280, 0, 280, self.view.bounds.height - 40)
         left.alpha = 0.5
         
-        // Do any additional setup after loading the view.
+        ges.addTarget(self, action: "gesDect")
+        ges.delaysTouchesBegan = true
+        self.view.addGestureRecognizer(ges)
     }
+
+    func gesDect(){
+        //println("x= \(left.frame.origin.x)")
+        let x = left.frame.origin.x
+        let tx = ges.translationInView(self.view).x
+        if(x == -280 && tx > 0){
+            show(ges)
+        }
+        if(x == 0 && tx < 0){
+            aniShow(-280)
+            img.removeFromSuperview()
+        }
+        
+    }
+    
     @IBAction func btnClick(sender: AnyObject) {
         
         let btn = sender as UIButton
@@ -83,7 +89,7 @@ class mainContainer: UIViewController {
             
             self.view.backgroundColor = UIColor.redColor()
         }
-        aniDisappear()
+        aniShow(-280)
         img.removeFromSuperview()
     }
     

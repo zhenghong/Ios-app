@@ -20,31 +20,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarDelegate {
         let tab = self.window?.rootViewController as UITabBarController
         let tabItem = tab.tabBar.items as [UITabBarItem]
         
-        var item1 = tabItem[0]
-        var item2 = tabItem[1]
-        var item3 = tabItem[2]
-        var item4 = tabItem[3]
-    
-        item1.selectedImage = UIImage(named: "bar1on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        item1.image = UIImage(named: "bar1off.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        item1.badgeValue = "2"
-        item1.title = "狗狗"
-        
-        item2.selectedImage = UIImage(named: "bar3on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        item2.image = UIImage(named: "bar3off.png")?.imageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal)
-        item2.title = "宠物店"
-        
-        item3.selectedImage = UIImage(named: "bar4on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        item3.image = UIImage(named: "bar4off.png")?.imageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal)
-        item3.title = "美容"
-        
-        item4.selectedImage = UIImage(named: "bar2on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        item4.image = UIImage(named: "bar2off.png")?.imageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal)
-        item4.title = "我"
+//        var item1 = tabItem[0]
+//        var item2 = tabItem[1]
+//        var item3 = tabItem[2]
+//        var item4 = tabItem[3]
+//    
+//        item1.selectedImage = UIImage(named: "bar1on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+//        item1.image = UIImage(named: "bar1off.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+//        item1.badgeValue = "2"
+//        item1.title = "狗狗"
+//        
+//        item2.selectedImage = UIImage(named: "bar3on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+//        item2.image = UIImage(named: "bar3off.png")?.imageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal)
+//        item2.title = "宠物店"
+//        
+//        item3.selectedImage = UIImage(named: "bar4on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+//        item3.image = UIImage(named: "bar4off.png")?.imageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal)
+//        item3.title = "美容"
+//        
+//        item4.selectedImage = UIImage(named: "bar2on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+//        item4.image = UIImage(named: "bar2off.png")?.imageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal)
+//        item4.title = "我"
         
         for itemIndex in 0 ... 3 {
             var item = tabItem[itemIndex]
-            item.setTitleTextAttributes(NSDictionary(objects: [UIColor.blackColor()], forKeys: [NSForegroundColorAttributeName]), forState: UIControlState.Highlighted)
+            item.setTitleTextAttributes(NSDictionary(objects: [UIColor.blackColor()], forKeys: [NSForegroundColorAttributeName]), forState: UIControlState.Selected)
+            
+                item.selectedImage = UIImage(named: "bar\(itemIndex + 1)on.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         }
         
         return true
