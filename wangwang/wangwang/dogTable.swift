@@ -86,7 +86,8 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
         //初始化UIRefreshControl
         var rc = UIRefreshControl()
-        rc.attributedTitle = NSAttributedString(string: "下拉刷新")
+        rc.tintColor = UIColor.blueColor()
+        rc.attributedTitle = NSAttributedString(string: "努力加在中...")
         rc.addTarget(self, action: "refreshDogs", forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = rc
         self.table.addSubview(refreshControl)
@@ -103,6 +104,8 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         if (self.refreshControl.refreshing) {
             self.refreshControl.attributedTitle = NSAttributedString(string: "加载中...")
         }
+        
+        
     }
     
     //下拉回调
@@ -183,7 +186,7 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-    self.performSegueWithIdentifier("gotoDogImg", sender: nil)
+    //self.performSegueWithIdentifier("gotoImg", sender: nil)
        
     }
 
@@ -235,9 +238,9 @@ class dogTable: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     }
     
     
-    @IBAction func cancel(segue: UIStoryboardSegue, sender: AnyObject?){
+    @IBAction func cancelDetail(segue: UIStoryboardSegue, sender: AnyObject?){
         
-        let dogVoew = segue.sourceViewController as addDog
+        //let dogVoew = segue.sourceViewController as addDog
         
         queryDogs()
         self.table.reloadData()

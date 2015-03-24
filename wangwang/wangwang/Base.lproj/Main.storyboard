@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yoq-8x-RFg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yoq-8x-RFg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="76" width="600" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dogTableCell" rowHeight="126" id="cE7-IA-bsM" customClass="dogTableCell" customModule="wangwang" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dogTableCell" rowHeight="126" id="cE7-IA-bsM" customClass="dogTableCell" customModule="wangwang" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cE7-IA-bsM" id="Yec-oT-nPg">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -74,6 +74,9 @@
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="123" y="54" width="245" height="44"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下午18:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T58-bt-kTB">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -128,7 +131,8 @@
                                                             <exclude reference="fVw-fQ-lmO"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="322" y="97" width="46" height="30"/>
                                                         <mask key="constraints">
                                                             <include reference="fVw-fQ-lmO"/>
                                                         </mask>
@@ -278,6 +282,7 @@
                                             <outlet property="name" destination="imT-Os-kjs" id="MZb-wI-mIb"/>
                                             <outlet property="time" destination="T58-bt-kTB" id="2zV-ZE-w55"/>
                                             <outlet property="type" destination="eVj-mL-zKi" id="I8L-V1-QsI"/>
+                                            <segue destination="alO-79-01V" kind="show" identifier="gotoImg" id="T0l-FH-Var"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -336,14 +341,13 @@
                     <connections>
                         <outlet property="search" destination="dLJ-Bc-moE" id="ebV-VC-kMH"/>
                         <outlet property="table" destination="Pe3-jH-RNc" id="nO8-66-uUU"/>
-                        <segue destination="boQ-kA-UTG" kind="showDetail" identifier="gotoDogImg" id="Q2O-IY-qpn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ui8-HF-Vgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1420.5" y="167"/>
         </scene>
-        <!--Collect-->
+        <!--美图-->
         <scene sceneID="Q4c-Bd-t0L">
             <objects>
                 <collectionViewController id="Bl3-78-0Ay" customClass="collect" customModule="wangwang" customModuleProvider="target" sceneMemberID="viewController">
@@ -412,11 +416,10 @@
                             <outlet property="delegate" destination="Bl3-78-0Ay" id="eGr-pC-se6"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="KeE-Nt-98K">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;狗狗" id="eKf-uQ-O3y">
+                    <navigationItem key="navigationItem" title="美图" id="KeE-Nt-98K">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="DQK-yp-bZI">
                             <connections>
-                                <action selector="calcel:" destination="Bl3-78-0Ay" id="fG6-bm-qDI"/>
-                                <segue destination="ch6-0K-EHR" kind="unwind" unwindAction="cancel:sender:" id="QLr-zd-Dfy"/>
+                                <segue destination="ch6-0K-EHR" kind="unwind" unwindAction="cancelDetail:sender:" id="ht5-91-xgw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -424,7 +427,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3h-oo-df8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ch6-0K-EHR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3970.5" y="168"/>
+            <point key="canvasLocation" x="2308.5" y="168"/>
         </scene>
         <!--宠物店-->
         <scene sceneID="0ej-TN-L8F">
@@ -579,24 +582,6 @@
             </objects>
             <point key="canvasLocation" x="793.5" y="980"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="w6E-5w-aht">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="boQ-kA-UTG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dsy-ah-1LO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Bl3-78-0Ay" kind="relationship" relationship="rootViewController" id="w6B-wG-V1p"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zHf-Dq-VOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3115.5" y="168"/>
-        </scene>
         <!--添加-->
         <scene sceneID="vSA-fY-GEZ">
             <objects>
@@ -719,7 +704,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IG1-o7-Kjd" kind="unwind" unwindAction="cancel:sender:" id="68g-9U-Uuu"/>
+                                    <segue destination="IG1-o7-Kjd" kind="unwind" unwindAction="cancelDetail:sender:" id="MoY-6H-Li6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图片" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-pq-ivf">
@@ -923,7 +908,7 @@
                     <navigationItem key="navigationItem" title="添加" id="buF-tD-UnY">
                         <barButtonItem key="leftBarButtonItem" title="返回" id="CqL-GO-7Db">
                             <connections>
-                                <segue destination="IG1-o7-Kjd" kind="unwind" unwindAction="cancel:sender:" id="75a-7o-rd8"/>
+                                <segue destination="IG1-o7-Kjd" kind="unwind" unwindAction="cancelDetail:sender:" id="zsa-u6-9jp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1273,6 +1258,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Joo-Kh-BRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="354" y="980"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bZj-oN-YBh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="alO-79-01V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nlI-sM-5YB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bl3-78-0Ay" kind="relationship" relationship="rootViewController" id="NuU-T0-MnZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2r-En-UQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2191.5" y="167"/>
         </scene>
     </scenes>
     <resources>

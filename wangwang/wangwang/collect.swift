@@ -15,17 +15,17 @@ class collect: UICollectionViewController,UICollectionViewDataSource,UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var sheet = UIAlertController(title: "sheet", message: "test", preferredStyle: UIAlertControllerStyle.ActionSheet)
-        
-        var a1 = UIAlertAction(title: "cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        var a2 = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: nil)
-        var a3 = UIAlertAction(title: "delete", style: UIAlertActionStyle.Destructive, handler: nil)
-        
-        sheet.addAction(a1)
-        sheet.addAction(a2)
-        sheet.addAction(a3)
-        
-        self.presentViewController(sheet, animated: true, completion: nil)
+//        var sheet = UIAlertController(title: "sheet", message: "test", preferredStyle: UIAlertControllerStyle.ActionSheet)
+//        
+//        var a1 = UIAlertAction(title: "cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+//        var a2 = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: nil)
+//        var a3 = UIAlertAction(title: "delete", style: UIAlertActionStyle.Destructive, handler: nil)
+//        
+//        sheet.addAction(a1)
+//        sheet.addAction(a2)
+//        sheet.addAction(a3)
+//        
+//        self.presentViewController(sheet, animated: true, completion: nil)
         
     }
 
