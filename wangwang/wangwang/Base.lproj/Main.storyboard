@@ -376,9 +376,13 @@
                                 <color key="tintColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xMk-xa-0XO" secondAttribute="trailing" id="MFe-HL-54D"/>
-                                    <constraint firstItem="xMk-xa-0XO" firstAttribute="top" secondItem="Eu1-Xe-uUj" secondAttribute="top" id="MzG-ZE-9wx"/>
+                                    <constraint firstItem="xMk-xa-0XO" firstAttribute="top" secondItem="Eu1-Xe-uUj" secondAttribute="top" id="MzG-ZE-9wx">
+                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="xMk-xa-0XO" firstAttribute="leading" secondItem="Eu1-Xe-uUj" secondAttribute="leading" id="PCb-Rm-p77"/>
-                                    <constraint firstAttribute="bottom" secondItem="xMk-xa-0XO" secondAttribute="bottom" id="Tz8-od-yEr"/>
+                                    <constraint firstAttribute="bottom" secondItem="xMk-xa-0XO" secondAttribute="bottom" id="Tz8-od-yEr">
+                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
