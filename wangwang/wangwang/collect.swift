@@ -12,8 +12,24 @@ let reuseIdentifier = "dogCell"
 
 class collect: UICollectionViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
+    @IBOutlet var collectView: UICollectionView!
+    
+    func setupRefreshControl(){
+        
+        var topLevelObjects = NSBundle.mainBundle().loadNibNamed("refresh", owner: self, options: nil)
+        var ref = topLevelObjects[0] as refresh
+        ref.scrollView = self.collectionView!
+        ref.scrollView.addObserver(ref, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old, context: nil)
+        ref.targetForAction("refreshAction", withSender: self)
+        ref.frame = CGRectMake(0,0,320,0)
+        self.collectionView?.addSubview(ref)
+    
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupRefreshControl()
         
 //        var sheet = UIAlertController(title: "sheet", message: "test", preferredStyle: UIAlertControllerStyle.ActionSheet)
 //        
